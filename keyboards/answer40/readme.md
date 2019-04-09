@@ -1,12 +1,12 @@
-# answer40
+# answer40(alpha)
 
-![answer40](imgur.com image replace me!)
+![answer40](https://raw.githubusercontent.com/keyaki-namiki/answer40/master/images/answer40.jpg)
 
-A short description of the keyboard/project
+My answer for 40% keyboard.
 
 Keyboard Maintainer: [keyaki-namiki](https://github.com/keyaki-namiki)  
-Hardware Supported: The PCBs, controllers supported  
-Hardware Availability: links to where you can find this hardware
+Hardware Supported: The PCBs, ATmega32u4 controller supported  
+Hardware Availability: (now in preparation)
 
 Make example for this keyboard (after setting up your build environment):
 
