@@ -28,7 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DESCRIPTION     An answer for 40 percent keyboard
 
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 130
+#define TAPPING_TERM 132
 
 /* key matrix size */
 #define MATRIX_ROWS 4
@@ -65,12 +65,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
    #define RGBLIGHT_EFFECT_BREATHING
    #define RGBLIGHT_EFFECT_RAINBOW_MOOD
    #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-//   #define RGBLIGHT_EFFECT_SNAKE
-//   #define RGBLIGHT_EFFECT_KNIGHT
-//   #define RGBLIGHT_EFFECT_CHRISTMAS
    #define RGBLIGHT_EFFECT_STATIC_GRADIENT
    #define RGBLIGHT_EFFECT_RGB_TEST
-//   #define RGBLIGHT_EFFECT_ALTERNATING
  #endif
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
