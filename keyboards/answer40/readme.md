@@ -1,4 +1,4 @@
-# answer40(alpha)
+# answer40
 
 ![answer40](https://raw.githubusercontent.com/keyaki-namiki/answer40/master/images/answer40.jpg)
 
