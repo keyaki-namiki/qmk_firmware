@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x3939
-#define DEVICE_VER      0x0001
+#define DEVICE_VER      0x0002
 #define MANUFACTURER    keyaki_namiki
 #define PRODUCT         answer40
 #define DESCRIPTION     An answer for 40 percent keyboard
@@ -47,6 +47,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROW_PINS { E6, D4, B7, C7 }
 #define MATRIX_COL_PINS { B0, D6, D7, B4, B6, B5, F7, F6, F1, F4, F0 }
 #define UNUSED_PINS //{D3}
+
+#define NUMBER_OF_LEVER_SW 1
+#define LEVER_SW_PAD_1 {D2}
+#define LEVER_SW_PAD_2 {D1}
+#define LEVER_SW_PAD_3 {D0}
+#define LEVER_SW_PAD_4 {D5}
+#define LEVER_SW_PAD_T {C6}
 
 /* COL2ROW, ROW2COL*/
 #define DIODE_DIRECTION COL2ROW
