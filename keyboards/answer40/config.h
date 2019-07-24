@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 132
 
 /* key matrix size */
-#define MATRIX_ROWS 4
+#define MATRIX_ROWS 5
 #define MATRIX_COLS 11
 
 /*
@@ -44,7 +44,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
 */
-#define MATRIX_ROW_PINS { E6, D4, B7, C7 }
+#define MATRIX_ROW_PINS { E6, D4, B7, C7, C6 }
 #define MATRIX_COL_PINS { B0, D6, D7, B4, B6, B5, F7, F6, F1, F4, F0 }
 #define UNUSED_PINS //{D3}
 
