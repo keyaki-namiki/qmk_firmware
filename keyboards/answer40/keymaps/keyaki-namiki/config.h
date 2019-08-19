@@ -17,3 +17,7 @@
 #pragma once
 
 // place overrides here
+
+#define TAPPING_TERM 132
+#define TAPPING_LAYER_TERM 90
+//#define IGNORE_MOD_TAP_INTERRUPT

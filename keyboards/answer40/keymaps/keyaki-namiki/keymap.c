@@ -15,10 +15,6 @@
  */
 #include QMK_KEYBOARD_H
 
-#ifdef NUMBER_OF_LEVER_SW
-  #include "lever_sw.h"
-#endif
-
 #ifdef RGBLIGHT_ENABLE
 //Following line allows macro to read current RGB settings
 extern rgblight_config_t rgblight_config;
@@ -105,6 +101,8 @@ void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
 	}
 }
 
+int lever_sw_state = 0;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
 		case RGBRST:
@@ -119,26 +117,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LEVER_1:
       if (record->event.pressed) {
         // do something
-        tap_code(KC_1);
+        if(lever_sw_state != 2){
+          register_code(KC_WH_U);
+        }
       } else {
         // undo something
+          unregister_code(KC_WH_U);
       }
       return false;
       break;
     case LEVER_2:
       if (record->event.pressed) {
         // do something
-        tap_code(KC_2);
+        lever_sw_state = 2;
+//        tap_code(KC_2);
       } else {
         // undo something
+        lever_sw_state = 0;
       }
       return false;
       break;
     case LEVER_T:
       if (record->event.pressed) {
         // do something
-        tap_code(KC_3);
+        lever_sw_state = 5;
+//        tap_code(KC_5);
       } else {
+        lever_sw_state = 0;
         // undo something
       }
       return false;
@@ -146,18 +151,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LEVER_3:
       if (record->event.pressed) {
         // do something
-        tap_code(KC_4);
+        lever_sw_state = 3;
+//        tap_code(KC_3);
       } else {
         // undo something
+        lever_sw_state = 0;
       }
       return false;
       break;
     case LEVER_4:
       if (record->event.pressed) {
         // do something
-        tap_code(KC_5);
+        if(lever_sw_state != 3){
+          register_code(KC_WH_D);
+        }
       } else {
         // undo something
+          unregister_code(KC_WH_D);
       }
       return false;
       break;
@@ -174,4 +184,3 @@ void matrix_scan_user(void) {
 void led_set_user(uint8_t usb_led) {
 
 }
-
