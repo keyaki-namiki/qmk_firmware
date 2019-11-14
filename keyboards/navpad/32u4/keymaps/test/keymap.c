@@ -15,42 +15,254 @@
  */
 #include QMK_KEYBOARD_H
 
+extern keymap_config_t keymap_config;
+
 // Defines the keycodes used by our macros in process_record_user
-enum custom_keycodes { \
-    test = SAFE_RANGE,
-	k00, k01, k02,      k03,      k04,\
-	k10, k11, k12, k13, k14, k15, k16,\
-	k20, k21, k22, k23, k24, k25, k26,\
-	               k33, k34, k35, k36,\
-	k40, k41, k42, k43, k44, k45, k46,\
-	k50, k51, k52, k53, k54, k55, k56\ };
+enum custom_keycodes { 
+    QWERTY = SAFE_RANGE,
+	Key00, Key01, Key02,      Key03,      Key04,
+	Key10, Key11, Key12, Key13, Key14, Key15, Key16,
+	Key20, Key21, Key22, Key23, Key24, Key25, Key26,
+	               Key33, Key34, Key35, Key36,
+	Key40, Key41, Key42, Key43, Key44, Key45, Key46,
+	Key50, Key51, Key52, Key53, Key54, Key55, Key56
+    };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] =LAYOUT (\
-	LED_TEST1, LED_TEST2, LED_TEST3,      k03,      k04,\
-	k10, k11, k12, k13, k14, k15, k16,\
-	k20, k21, k22, k23, k24, k25, k26,\
-	               k33, k34, k35, k36,\
-	k40, k41, k42, k43, k44, k45, k46,\
-	k50, k51, k52, k53, k54, k55, k56\ 
+	BL_TOGG, KC_CAPS, KC_NLCK,      Key03,      Key04,\
+	Key10, Key11, Key12, Key13, Key14, Key15, Key16,\
+	Key20, Key21, Key22, Key23, Key24, Key25, Key26,\
+	               Key33, Key34, Key35, Key36,\
+	Key40, Key41, Key42, Key43, Key44, Key45, Key46,\
+	Key50, Key51, Key52, Key53, Key54, Key55, Key56\
+    )
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case k00:
+        case Key00:
             if (record->event.pressed) {
-                // when keycode QMKBEST is pressed
-                SEND_STRING("k00 pass" SS_TAP(X_ENTER));
+                SEND_STRING("Key00 pass" SS_TAP(X_ENTER));
             } else {
-                // when keycode QMKBEST is released
             }
             break;
-        case k01:
+        case Key01:
             if (record->event.pressed) {
-                // when keycode QMKURL is pressed
-                SEND_STRING("k01 pass" SS_TAP(X_ENTER));
+                SEND_STRING("Key01 pass" SS_TAP(X_ENTER));
+                tap_code(KC_CAPS);
             } else {
-                // when keycode QMKURL is released
+            }
+            break;
+        case Key02:
+            if (record->event.pressed) {
+                SEND_STRING("Key02 pass" SS_TAP(X_ENTER));
+                tap_code(KC_NLCK);
+            } else {
+            }
+            break;
+        case Key03:
+            if (record->event.pressed) {
+                SEND_STRING("Key03 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key04:
+            if (record->event.pressed) {
+                SEND_STRING("Key04 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key10:
+            if (record->event.pressed) {
+                SEND_STRING("Key10 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key11:
+            if (record->event.pressed) {
+                SEND_STRING("Key11 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key12:
+            if (record->event.pressed) {
+                SEND_STRING("Key12 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key13:
+            if (record->event.pressed) {
+                SEND_STRING("Key13 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key14:
+            if (record->event.pressed) {
+                SEND_STRING("Key14 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key15:
+            if (record->event.pressed) {
+                SEND_STRING("Key15 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key16:
+            if (record->event.pressed) {
+                SEND_STRING("Key16 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key20:
+            if (record->event.pressed) {
+                SEND_STRING("Key20 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key21:
+            if (record->event.pressed) {
+                SEND_STRING("Key21 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key22:
+            if (record->event.pressed) {
+                SEND_STRING("Key22 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key23:
+            if (record->event.pressed) {
+                SEND_STRING("Key23 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key24:
+            if (record->event.pressed) {
+                SEND_STRING("Key24 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key25:
+            if (record->event.pressed) {
+                SEND_STRING("Key25 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key26:
+            if (record->event.pressed) {
+                SEND_STRING("Key26 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key33:
+            if (record->event.pressed) {
+                SEND_STRING("Key33 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key34:
+            if (record->event.pressed) {
+                SEND_STRING("Key34 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key35:
+            if (record->event.pressed) {
+                SEND_STRING("Key35 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key36:
+            if (record->event.pressed) {
+                SEND_STRING("Key36 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key40:
+            if (record->event.pressed) {
+                SEND_STRING("Key40 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key41:
+            if (record->event.pressed) {
+                SEND_STRING("Key41 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key42:
+            if (record->event.pressed) {
+                SEND_STRING("Key42 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key43:
+            if (record->event.pressed) {
+                SEND_STRING("Key43 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key44:
+            if (record->event.pressed) {
+                SEND_STRING("Key44 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key45:
+            if (record->event.pressed) {
+                SEND_STRING("Key45 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key46:
+            if (record->event.pressed) {
+                SEND_STRING("Key46 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key50:
+            if (record->event.pressed) {
+                SEND_STRING("Key50 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key51:
+            if (record->event.pressed) {
+                SEND_STRING("Key51 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key52:
+            if (record->event.pressed) {
+                SEND_STRING("Key52 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key53:
+            if (record->event.pressed) {
+                SEND_STRING("Key53 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key54:
+            if (record->event.pressed) {
+                SEND_STRING("Key54 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key55:
+            if (record->event.pressed) {
+                SEND_STRING("Key55 pass" SS_TAP(X_ENTER));
+            } else {
+            }
+            break;
+        case Key56:
+            if (record->event.pressed) {
+                SEND_STRING("Key56 pass" SS_TAP(X_ENTER));
+            } else {
             }
             break;
     }
