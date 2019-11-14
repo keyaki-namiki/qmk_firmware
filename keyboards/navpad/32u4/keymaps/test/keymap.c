@@ -16,11 +16,18 @@
 #include QMK_KEYBOARD_H
 
 // Defines the keycodes used by our macros in process_record_user
-enum custom_keycodes { QMKBEST = SAFE_RANGE, QMKURL };
+enum custom_keycodes { \
+    test = SAFE_RANGE,
+	k00, k01, k02,      k03,      k04,\
+	k10, k11, k12, k13, k14, k15, k16,\
+	k20, k21, k22, k23, k24, k25, k26,\
+	               k33, k34, k35, k36,\
+	k40, k41, k42, k43, k44, k45, k46,\
+	k50, k51, k52, k53, k54, k55, k56\ };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] =LAYOUT (\
-	k00, k01, k02,      k03,      k04,\
+	LED_TEST1, LED_TEST2, LED_TEST3,      k03,      k04,\
 	k10, k11, k12, k13, k14, k15, k16,\
 	k20, k21, k22, k23, k24, k25, k26,\
 	               k33, k34, k35, k36,\
@@ -30,18 +37,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case QMKBEST:
+        case k00:
             if (record->event.pressed) {
                 // when keycode QMKBEST is pressed
-                SEND_STRING("QMK is the best thing ever!");
+                SEND_STRING("k00 pass" SS_TAP(X_ENTER));
             } else {
                 // when keycode QMKBEST is released
             }
             break;
-        case QMKURL:
+        case k01:
             if (record->event.pressed) {
                 // when keycode QMKURL is pressed
-                SEND_STRING("https://qmk.fm/" SS_TAP(X_ENTER));
+                SEND_STRING("k01 pass" SS_TAP(X_ENTER));
             } else {
                 // when keycode QMKURL is released
             }
