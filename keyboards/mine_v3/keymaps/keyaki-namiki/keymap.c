@@ -30,6 +30,7 @@ enum custom_keycodes {
     LOWER,
     LOWER_SPC,
     RAISE,
+    G_RAISE,
     RAISE_ENT,
     ADJUST
 };
@@ -45,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,          KC_Y,   KC_U,   KC_I,   KC_O,   KC_P, BL_TOGG, KC_BSPC,\
      KC_LCTL,    KC_A, KC_S, KC_D, KC_F, KC_G,   KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,   KC_ENT,\
           KC_LSFT,   KC_Z,   KC_X,   KC_C,   KC_V,    KC_B,   KC_N,   KC_M,   KC_COMM,  KC_DOT,   KC_LGUI, ADJUST,\
-                                  LOWER,KC_ENT , KC_SPC, RAISE, KC_RALT,RAISE \
+                                  LOWER,KC_ENT , KC_SPC,G_RAISE, KC_RALT,RAISE \
 ),
   [_LOWER] = LAYOUT( \
     KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11, KC_DEL,\
@@ -67,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_ADJUST] = LAYOUT( \
      RESET, DF(_QWERTY),XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, KC_PSCR, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX,\
-        KC_CAPS,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,BL_STEP, BL_INC, XXXXXXX, KC_LEFT, KC_RGHT, XXXXXXX,\
+        KC_CAPS,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,DF(_GAME),BL_STEP, BL_INC, XXXXXXX, KC_LEFT, KC_RGHT, XXXXXXX,\
             _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BL_TOGG, BL_BRTG, BL_DEC, XXXXXXX, KC_DOWN, XXXXXXX, _______,\
                                     LOWER,_______, XXXXXXX, XXXXXXX, _______,RAISE\
   ), \
@@ -136,6 +137,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     unregister_code(KC_ENT);
                 }
                 raise_pressed = 0;
+            }
+            return false;
+        case G_RAISE:
+            if (record->event.pressed) {
+                layer_on(_G_RAISE);
+                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+            } else {
+                layer_off(_G_RAISE);
+                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
             }
             return false;
         case ADJUST:
