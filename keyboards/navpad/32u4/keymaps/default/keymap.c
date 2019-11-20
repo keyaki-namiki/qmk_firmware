@@ -31,9 +31,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_NO,  KC_NO,  RESET,                KC_NO, KC_NO,\
 	KC_NO,  KC_NO,  KC_NO, BL_STEP,KC_NO, KC_NO, KC_NO,\
 	KC_NO,  KC_NO,  KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO,\
-                           KC_NO,  KC_NO, KC_NO, KC_NO,\
+                           KC_BSPC,KC_NO, KC_DEL,KC_NO,\
 	KC_NO, KC_NO,   KC_NO, KC_NO,  KC_NO, KC_NO, KC_TRNS,\
-	KC_NO, KC_NO,   KC_NO, KC_NO,  KC_NO, KC_NO, KC_TRNS \
+	KC_NO, KC_NO,   KC_NO, KC_PEQL,KC_PEQL,KC_NO, KC_TRNS \
     )
 };
 
