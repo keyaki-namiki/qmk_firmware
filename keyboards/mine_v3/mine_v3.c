@@ -68,16 +68,24 @@ void set_layer_indicators(uint8_t layer) {
 			break;
 		case 1:
 			led_toggle(0, true);
-			led_toggle(1, false);
+			led_toggle(1, true);
 			break;
 		case 2:
+			led_toggle(0, true);
+			led_toggle(1, false);
+			break;
+		case 3:
 			led_toggle(0, false);
 			led_toggle(1, true);
 			break;
-		case 3:
-			led_toggle(0, true);
+        case 4:
+			led_toggle(0, false);
 			led_toggle(1, true);
-			break;
+            break;
+        case 5:
+            led_toggle(0, true);
+            led_toggle(1, true);
+            break;
 		default:
 			led_toggle(0, false);
 			led_toggle(1, false);
