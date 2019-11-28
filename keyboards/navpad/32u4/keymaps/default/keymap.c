@@ -64,3 +64,11 @@ void matrix_init_user(void) {}
 void matrix_scan_user(void) {}
 
 void led_set_user(uint8_t usb_led) {}
+
+void encoder_update_user(uint16_t index, bool clockwise) {
+   if (clockwise) {
+        tap_code(KC_UP);    //Rotary encoder clockwise
+    } else {
+        tap_code(KC_DOWN);  //Rotary encoder Reverse clockwise
+    }
+}
