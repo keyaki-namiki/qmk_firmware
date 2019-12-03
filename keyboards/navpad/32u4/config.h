@@ -27,9 +27,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT navpad
 #define DESCRIPTION A custom keyboard
 
-/* key matrix size */
-#define MATRIX_ROWS 6
-#define MATRIX_COLS 7
+/* Use I2C or Serial */
+//#define USE_I2C
+#define USE_SERIAL
+//#define USE_MATRIX_I2C
+
+/* Soft Serial defines */
+#define SOFT_SERIAL_PIN D2
+#define SERIAL_USE_MULTI_TRANSACTION
+
+/* Select hand configuration */
+#define MASTER_LEFT
+// #define MASTER_RIGHT
+// #define EE_HAND
 
 /*
  * Keyboard Matrix Assignments
@@ -41,11 +51,41 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS \
-    { D7, D6, B2, B3, E6, F0 }
-#define MATRIX_COL_PINS \
-    { C6, C7, F7, F6, F5, F4, F1 }
-#define UNUSED_PINS
+/* key matrix size */
+#ifndef MINE_V3_CONNECTED
+    #ifdef DOUBLE
+        #define MATRIX_ROWS 6
+        #define MATRIX_COLS 7
+        #define MATRIX_ROW_PINS \
+            { D7, D6, B2, B3, E6, F0 }
+        #define MATRIX_COL_PINS \
+            { C6, C7, F7, F6, F5, F4, F1 }
+        #define UNUSED_PINS
+    #else
+        #define MATRIX_ROWS 12
+        #define MATRIX_COLS 7
+        #define MATRIX_ROW_PINS \
+            { D7, D6, B2, B3, E6, F0 }
+        #define MATRIX_COL_PINS \
+            { C6, C7, F7, F6, F5, F4, F1 }
+        #define UNUSED_PINS
+    #endif
+#else
+        #define MATRIX_ROWS 10
+        #define MATRIX_COLS 11
+        #define MATRIX_ROW_PINS \
+            { D7, D6, B2, B3, E6, F0 }
+        #define MATRIX_COL_PINS \
+            { C6, C7, F7, F6, F5, F4, F1 }
+        #define MATRIX_ROW_PINS_RIGHT \
+        { F0, F7, D3, D5 }
+        #define MATRIX_COL_PINS_RIGHT \
+        { F6, F5, F1, F4, B4, C6, D7, B0, B1, B2, B3 }
+        #define UNUSED_PINS
+#endif
+
+
+
 
 /* COL2ROW, ROW2COL*/
 #define DIODE_DIRECTION COL2ROW
@@ -57,6 +97,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define ENCODERS_PAD_A { D3, B0 }
 #define	ENCODERS_PAD_B { D5, B1 }
+#ifdef MINE_V3_CONNECTED
+#define ENCODERS_PAD_A_RIGHT {  }
+#define ENCODERS_PAD_B_RIGHT {  }
+#endif
 
 #define BACKLIGHT_PIN B7
 #define BACKLIGHT_BREATHING
