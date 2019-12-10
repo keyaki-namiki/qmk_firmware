@@ -18,3 +18,4 @@
 
 // place overrides here
 #define MINE_V3_CONNECTED
+#define USE_SERIAL

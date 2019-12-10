@@ -19,6 +19,7 @@
 // You can leave any or all of these undefined.
 // These are only required if you want to perform custom actions.
 
+#ifndef MINEV3_CONNECTED
 void matrix_init_kb(void) {
   // put your keyboard start-up code here
   // runs once when the firmware starts up
@@ -32,6 +33,7 @@ void matrix_init_kb(void) {
 
   matrix_init_user();
 }
+#endif
 
 void matrix_scan_kb(void) {
   // put your looping keyboard code here
@@ -47,6 +49,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
   return process_record_user(keycode, record);
 }
 
+#ifndef MINEV3_CONNECTED
 void led_set_kb(uint8_t usb_led) {
   // put your keyboard LED indicator (ex: Caps Lock LED) toggling code here
     if (IS_LED_ON(usb_led, USB_LED_NUM_LOCK)) {
@@ -67,3 +70,4 @@ void led_set_kb(uint8_t usb_led) {
 
   led_set_user(usb_led);
 }
+#endif

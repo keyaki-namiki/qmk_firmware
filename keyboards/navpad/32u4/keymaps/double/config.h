@@ -18,3 +18,4 @@
 
 // place overrides here
 #define DOUBLE
+#define USE_SERIAL
