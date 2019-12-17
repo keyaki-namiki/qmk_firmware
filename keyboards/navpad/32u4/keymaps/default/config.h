@@ -17,3 +17,7 @@
 #pragma once
 
 // place overrides here
+#ifdef MATRIX_SIZE
+#undef MATRIX_SIZE
+#define MATRIX_SIZE 1
+#endif

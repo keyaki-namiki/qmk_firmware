@@ -28,7 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DESCRIPTION A custom keyboard
 
 /* Use I2C or Serial */
-//#define USE_I2C
+#define USE_I2C
 #define USE_SERIAL
 //#define USE_MATRIX_I2C
 
@@ -39,7 +39,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Select hand configuration */
 #define MASTER_LEFT
 // #define MASTER_RIGHT
-// #define EE_HAND
+#define EE_HAND
+
+//  change the number below           //
+//  if use in different styles        //
+//  (like connect to other keyboards) //
+#define MATRIX_SIZE 0
 
 /*
  * Keyboard Matrix Assignments
@@ -52,38 +57,40 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 /* key matrix size */
-#ifndef MINE_V3_CONNECTED
-    #ifdef DOUBLE
-        #define MATRIX_ROWS 6
-        #define MATRIX_COLS 7
-        #define MATRIX_ROW_PINS \
-            { D7, D6, B2, B3, E6, F0 }
-        #define MATRIX_COL_PINS \
-            { C6, C7, F7, F6, F5, F4, F1 }
-        #define UNUSED_PINS
-    #else
-        #define MATRIX_ROWS 12
-        #define MATRIX_COLS 7
-        #define MATRIX_ROW_PINS \
-            { D7, D6, B2, B3, E6, F0 }
-        #define MATRIX_COL_PINS \
-            { C6, C7, F7, F6, F5, F4, F1 }
-        #define UNUSED_PINS
-    #endif
-#else
-        #define MATRIX_ROWS 10
-        #define MATRIX_COLS 11
-        #define MATRIX_ROW_PINS \
-            { D7, D6, B2, B3, E6, F0 }
-        #define MATRIX_COL_PINS \
-            { C6, C7, F7, F6, F5, F4, F1 }
-        #define MATRIX_ROW_PINS_RIGHT \
-        { F0, F7, D3, D5 }
-        #define MATRIX_COL_PINS_RIGHT \
-        { F6, F5, F1, F4, B4, C6, D7, B0, B1, B2, B3 }
-        #define UNUSED_PINS
-#endif
 
+#if MATRIX_SIZE == 3
+    #define MATRIX_ROWS 10
+    #define MATRIX_COLS 11
+    #define MATRIX_ROW_PINS \
+        { D7, D6, B2, B3, E6, F0 }
+    #define MATRIX_COL_PINS \
+        { C6, C7, F7, F6, F5, F4, F1 }
+    #define MATRIX_ROW_PINS_RIGHT \
+        { F0, F7, D3, D5 }
+    #define MATRIX_COL_PINS_RIGHT \
+        { F6, F5, F1, F4, B4, C6, D7, B0, B1, B2, B3 }
+    #define UNUSED_PINS
+#elif MATRIX_SIZE == 2
+    #define MATRIX_ROWS 12
+    #define MATRIX_COLS 7
+    #define MATRIX_ROW_PINS \
+        { D7, D6, B2, B3, E6, F0 }
+    #define MATRIX_COL_PINS \
+        { C6, C7, F7, F6, F5, F4, F1 }
+    #define UNUSED_PINS
+#elif MATRIX_SIZE == 1
+    #define MATRIX_ROWS 6
+    #define MATRIX_COLS 7
+    #define MATRIX_ROW_PINS \
+        { D7, D6, B2, B3, E6, F0 }
+    #define MATRIX_ROW_PINS_RIGHT \
+        { D7, D6, B2, B3, E6, F0 }
+    #define MATRIX_COL_PINS \
+        { C6, C7, F7, F6, F5, F4, F1 }
+    #define MATRIX_COL_PINS_RIGHT \
+        { C6, C7, F7, F6, F5, F4, F1 }
+    #define UNUSED_PINS
+#endif
 
 
 

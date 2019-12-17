@@ -17,4 +17,7 @@
 #pragma once
 
 // place overrides here
-#define MINE_V3_CONNECTED
+#ifdef MATRIX_SIZE
+#undef MATRIX_SIZE
+#define MATRIX_SIZE 3
+#endif

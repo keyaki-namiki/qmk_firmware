@@ -17,4 +17,7 @@
 #pragma once
 
 // place overrides here
-#define DOUBLE
+#ifdef MATRIX_SIZE
+#undef MATRIX_SIZE
+#define MATRIX_SIZE 2
+#endif
