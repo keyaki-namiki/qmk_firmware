@@ -14,6 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+#include "audio.h"
+#include "bootloader.h"
 
 enum layer_number {
     _QWERTY = 0,
@@ -68,12 +70,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_NO,   KC_NO,   LOWER,   _______, KC_TAB,          XXXXXXX, _______, RAISE,   KC_NO,   KC_NO\
   ),
   [_ADJUST] = LAYOUT( \
-    RESET,DF(_QWERTY),XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, KC_UP,   XXXXXXX, XXXXXXX,\
-    KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,DF(_GAME),BL_STEP, BL_INC,  XXXXXXX, KC_LEFT, KC_RGHT, XXXXXXX,\
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BL_TOGG, BL_BRTG, BL_DEC,  XXXXXXX, KC_DOWN, XXXXXXX, _______,\
+    RESET,DF(_QWERTY),XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, EEP_RST, XXXXXXX, KC_PSCR, KC_UP,   XXXXXXX, XXXXXXX,\
+    KC_CAPS, AU_ON,   AU_OFF,  MU_TOG,  MU_MOD, DF(_GAME),BL_STEP, BL_INC,  XXXXXXX, KC_LEFT, KC_RGHT, XXXXXXX,\
+    _______, XXXXXXX, CK_RST,  CK_UP,   CK_DOWN,BL_TOGG,  BL_BRTG, BL_DEC,  XXXXXXX, KC_DOWN, XXXXXXX, _______,\
          KC_NO,   KC_NO,   LOWER,   _______, XXXXXXX,          XXXXXXX, _______, RAISE,   KC_NO,   KC_NO\
   ), \
 };
+
+float tone_qwerty[][2]     = SONG(QWERTY_SOUND);
+float tone_plover[][2]     = SONG(PLOVER_SOUND);
+float tone_plover_gb[][2]  = SONG(PLOVER_GOODBYE_SOUND);
+float music_scale[][2]     = SONG(MUSIC_SCALE_SOUND);
 
 void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
 	if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
@@ -168,10 +175,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-void matrix_init_user(void) {}
+void matrix_init_user(void) {
+        startup_user();
+}
 
 void matrix_scan_user(void) {}
 
 void led_set_user(uint8_t usb_led) {
 
+}
+
+void startup_user()
+{
+    _delay_ms(50); // gets rid of tick
+}
+
+void shutdown_user()
+{
+    _delay_ms(150);
+    stop_all_notes();
+}
+
+void music_on_user(void)
+{
+    music_scale_user();
+}
+
+void music_scale_user(void)
+{
+    PLAY_SONG(music_scale);
 }

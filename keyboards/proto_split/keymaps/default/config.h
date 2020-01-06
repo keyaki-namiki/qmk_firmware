@@ -19,3 +19,5 @@
 // place overrides here
 #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 132
+#define STARTUP_SONG SONG(STARTUP_SOUND)
+#define AUDIO_CLICKY
