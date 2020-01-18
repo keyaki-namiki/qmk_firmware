@@ -168,7 +168,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-void matrix_init_user(void) {}
+void matrix_init_user(void) {
+    setPinOutput(C6);
+    setPinOutput(C7);
+    writePinLow(C6);
+    writePinLow(C7);
+}
 
 void matrix_scan_user(void) {}
 
