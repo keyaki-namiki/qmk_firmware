@@ -27,6 +27,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT         MiniAxe
 #define DESCRIPTION     Yet another split keyboard
 
+
+#define TAPPING_FORCE_HOLD
+#define TAPPING_TERM 132
+
 /* key matrix size */
 #define MATRIX_ROWS 8
 #define MATRIX_COLS 5
