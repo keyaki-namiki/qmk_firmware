@@ -56,6 +56,31 @@ led_config_t g_led_config = { {
 } };
 #endif
 
+#ifdef SPLIT_HAND_MATRIX_GRID
+
+static uint8_t peek_matrix_intersection(pin_t out_pin, pin_t in_pin) {
+    setPinInputHigh(in_pin);
+    setPinOutput(out_pin);
+    writePinLow(out_pin);
+    // It's almost unnecessary, but wait until it's down to low, just in case.
+    wait_us(1);
+    uint8_t pin_state = readPin(in_pin);
+    // Set out_pin to a setting that is less susceptible to noise.
+    setPinInputHigh(out_pin);
+    wait_us(30);
+    return pin_state;
+}
+
+bool is_keyboard_left(void) {
+  #ifdef SPLIT_HAND_MATRIX_GRID_LOW_IS_RIGHT
+    return peek_matrix_intersection(SPLIT_HAND_MATRIX_GRID);
+  #else
+    return ! peek_matrix_intersection(SPLIT_HAND_MATRIX_GRID);
+  #endif
+}
+
+#endif /* SPLIT_HAND_MATRIX_GRID */
+
 // Optional override functions below.
 // You can leave any or all of these undefined.
 // These are only required if you want to perform custom actions.
