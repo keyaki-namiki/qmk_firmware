@@ -23,3 +23,4 @@
 // #define MASTER_LEFT
 // #define MASTER_RIGHT
 // #define EE_HANDS
+#undef OLED_DRIVER_ENABLE
