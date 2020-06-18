@@ -23,3 +23,7 @@
 // #define MASTER_LEFT
 // #define MASTER_RIGHT
 // #define EE_HANDS
+
+//#define DIP_SWITCH_PINS { B5, B6 }
+//#define DIP_SWITCH_PINS { B5, B6, B5, B6 }
+#define DIP_SWITCH_MATRIX_GRID { {0,6}, {1,6}, {5,6}, {6,6} }

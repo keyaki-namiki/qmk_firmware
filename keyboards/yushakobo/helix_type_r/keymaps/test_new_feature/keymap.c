@@ -293,3 +293,20 @@ bool led_update_user(led_t led_state) {
     return true;
 }
 */
+
+void dip_switch_update_user(uint8_t index, bool active) {
+    switch (index) {
+        case 0:
+            if(active) { tap_code(KC_1); } else { }
+            break;
+        case 1:
+            if(active) { tap_code(KC_2); } else { }
+            break;
+        case 2:
+            if(active) { tap_code(KC_3); } else { }
+            break;
+        case 3:
+            if (active) { tap_code(KC_4); } else { }
+            break;
+    }
+}
