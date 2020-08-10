@@ -41,10 +41,10 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 
     return process_record_user(keycode, record);
 }
+*/
 
 bool led_update_kb(led_t led_state) {
     // put your keyboard LED indicator (ex: Caps Lock LED) toggling code here
 
     return led_update_user(led_state);
 }
-*/
