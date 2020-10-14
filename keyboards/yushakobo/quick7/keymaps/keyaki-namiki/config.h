@@ -15,9 +15,15 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#pragma once
+
 #undef RGBLIGHT_LIMIT_VAL
-#define RGBLIGHT_LIMIT_VAL 150 /* The maximum brightness level */
+#define RGBLIGHT_LIMIT_VAL 70 /* The maximum brightness level */
 #define RGBLIGHT_LAYERS
+#undef RGBLIGHT_EFFECT_RAINBOW_MOOD
+#undef RGBLIGHT_EFFECT_CHRISTMAS
+#undef RGBLIGHT_EFFECT_RGB_TEST
+#undef RGBLIGHT_BREATHE_TABLE_SIZE
 #define RGBLIGHT_MAX_LAYERS 4
 #define RGBLIGHT_LED_MAP {\
     0, 1, 2,\

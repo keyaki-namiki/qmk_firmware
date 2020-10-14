@@ -15,7 +15,8 @@
  */
 #include QMK_KEYBOARD_H
 
-#define FAVORITE_COLOR HSV_CYAN
+#define FAVORITE_COLOR HSV_PINK
+//#define CAPS_COLOR HSV_TEAL
 
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
@@ -25,22 +26,25 @@ enum layer_names {
 
 // Defines the keycodes used by our macros in process_record_user
 enum custom_keycodes {
-    YUSHAURL = SAFE_RANGE
+    YUSHAURL = SAFE_RANGE,
+    B_MO_FUNC1
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [_BASE] = LAYOUT(
-        KC_MUTE,   MO(_FUNC1), RGB_MOD,
-        KC_BRIU,   KC_UP,      EEP_RST,
-        KC_BRID,   KC_DOWN,    KC_RGHT
+        KC_ESC,    KC_E,    LCTL(KC_S),
+        LCTL(KC_H),KC_R,    KC_F,
+        KC_X,      KC_V,    B_MO_FUNC1
     ),
     [_FUNC1] = LAYOUT(
-        RESET,   KC_TRNS, RGB_TOG,
-        KC_HOME, KC_VOLU, KC_END,
-        KC_MPRV, KC_VOLD, KC_MNXT
+        LALT(KC_3),KC_BTN3,     RGB_TOG,
+        KC_DEL,    KC_INS,      KC_END,
+        KC_W,      KC_BSPC,     KC_TRNS
     )
 };
+
+static bool _key_b_pressed = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -51,7 +55,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 // when keycode QMKURL is released
             }
-            break;
+            return false;
+        case B_MO_FUNC1:
+            if(record->event.pressed){
+                _key_b_pressed = true;
+                layer_on(_FUNC1);
+            } else {
+                layer_off(_FUNC1);
+                if(_key_b_pressed){
+                    register_code(KC_B);
+                    unregister_code(KC_B);
+                }
+                _key_b_pressed = false;
+            }
+            return false;
+        default:
+            if(record->event.pressed){
+                _key_b_pressed = false;
+            }
+
     }
     return true;
 }
@@ -59,25 +81,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) { // Left encoder
         if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-    }
-    else if (index == 1) { // Right encoder
-        if (clockwise) {
             rgblight_decrease_hue_noeeprom();
         } else {
             rgblight_increase_hue_noeeprom();
         }
     }
+    else if (index == 1) { // Right encoder
+        if (clockwise) {
+            tap_code16(S(KC_LBRC));
+        } else {
+            tap_code16(S(KC_RBRC));
+        }
+    }
 }
 
-#define CAPS_COLOR HSV_RED
-
 const rgblight_segment_t PROGMEM quick7_capslock[] = RGBLIGHT_LAYER_SEGMENTS(
-    {9,1,CAPS_COLOR},
-    {12,1,CAPS_COLOR}
+    {9,1,FAVORITE_COLOR},
+    {12,1,FAVORITE_COLOR}
 );
 const rgblight_segment_t PROGMEM quick7_numlock[] = RGBLIGHT_LAYER_SEGMENTS(
     {10,1,FAVORITE_COLOR},
