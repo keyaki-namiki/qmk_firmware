@@ -2,7 +2,7 @@
 
 ![macro_fighter6](imgur.com image replace me!)
 
-*A short description of the keyboard/project*
+*6x6 simple macropad with rgb leds*
 
 * Keyboard Maintainer: [keyaki-namiki](https://github.com/yourusername)
 * Hardware Supported: *The PCBs, controllers supported*

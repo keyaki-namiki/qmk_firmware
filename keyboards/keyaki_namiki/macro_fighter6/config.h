@@ -62,17 +62,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define BACKLIGHT_LEVELS 3
 //#define BACKLIGHT_BREATHING
 
-//#define RGB_DI_PIN D2
+#define RGB_DI_PIN D2
+#define RGBLED_NUM 36
+#define DRIVER_LED_TOTAL RGBLED_NUM
 //#ifdef RGB_DI_PIN
-//#    define RGBLED_NUM 36
-//#define RGBLIGHT_LED_MAP {\
+/*#define RGBLIGHT_LED_MAP {\
     30, 31, 2,  33, 34, 35,\
     29, 2,  27, 26, 25, 24,\
     0,  7,  8,  15, 16, 23,\
     1,  6,  9,  14, 17, 22,\
     2,  5,  10, 13, 18, 21,\
     3,  4,  11, 12, 19, 20\
-}
+}*/
 //#    define RGBLIGHT_HUE_STEP 8
 //#    define RGBLIGHT_SAT_STEP 8
 //#    define RGBLIGHT_VAL_STEP 8
@@ -113,38 +114,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * This is useful for the Windows task manager shortcut (ctrl+shift+esc).
  */
 //#define GRAVE_ESC_CTRL_OVERRIDE
-
-/*
- * Force NKRO
- *
- * Force NKRO (nKey Rollover) to be enabled by default, regardless of the saved
- * state in the bootmagic EEPROM settings. (Note that NKRO must be enabled in the
- * makefile for this to work.)
- *
- * If forced on, NKRO can be disabled via magic key (default = LShift+RShift+N)
- * until the next keyboard reset.
- *
- * NKRO may prevent your keystrokes from being detected in the BIOS, but it is
- * fully operational during normal computer usage.
- *
- * For a less heavy-handed approach, enable NKRO via magic key (LShift+RShift+N)
- * or via bootmagic (hold SPACE+N while plugging in the keyboard). Once set by
- * bootmagic, NKRO mode will always be enabled until it is toggled again during a
- * power-up.
- *
- */
-//#define FORCE_NKRO
-
-/*
- * Feature disable options
- *  These options are also useful to firmware size reduction.
- */
-
-/* disable debug print */
-//#define NO_DEBUG
-
-/* disable print */
-//#define NO_PRINT
 
 /* disable action features */
 //#define NO_ACTION_LAYER
