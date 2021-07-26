@@ -23,36 +23,36 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
-        TO(0),  TO(1),  TO(2),  TO(3),  KC_NO,  KC_NO,
-        KC_CAPS,KC_NLCK,KC_NO,  KC_NO,  KC_NO,  KC_NO,
-        KC_ESC, KC_NO,  KC_NO,  KC_NO,  KC_DEL, KC_BSPC,
-        KC_LCTL,KC_LEFT,KC_DOWN,KC_UP,  KC_RGHT,KC_END,
-        KC_LSFT,KC_HOME,KC_PGDN,KC_PGUP,KC_END, KC_NO,
-        KC_LALT,KC_NO,  KC_NO,  KC_NO,  KC_LGUI,KC_SPC
+        TO(0),   TO(1),   KC_NO,   TO(3),   RGB_MOD, RGB_TOG,
+        KC_CAPS, KC_NLCK, KC_NO,   KC_NO,   KC_DEL,  KC_BSPC,
+        KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,
+        KC_LCTL, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
+        KC_LSFT, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,
+        KC_LALT, KC_NO,   KC_NO,   KC_NO,   KC_LGUI, KC_SPC
     ),
     [_NUMPAD] = LAYOUT( 
-        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_ESC, KC_PSLS,KC_PAST,KC_PMNS,
-        KC_NO,  KC_NO,  KC_P7,  KC_P8,  KC_P9,  KC_PPLS,
-        KC_NO,  KC_NO,  KC_P4,  KC_P5,  KC_P6,  KC_PPLS,
-        KC_NO,  KC_NO,  KC_P1,  KC_P2,  KC_P3,  KC_PENT,
-        KC_NO,  KC_NO,  KC_P0,  KC_P0,  KC_NO,  KC_NO\
+        _______, _______, _______, _______, KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_ESC,  KC_PSLS, KC_PAST, KC_PMNS,
+        KC_NO,   KC_NO,   KC_P7,   KC_P8,   KC_P9,   KC_PPLS,
+        KC_NO,   KC_QUOT, KC_P4,   KC_P5,   KC_P6,   KC_PPLS,
+        KC_NO,   KC_TAB,  KC_P1,   KC_P2,   KC_P3,   KC_PENT,
+        KC_NO,   KC_NO,   KC_P0,   KC_P0,   KC_PDOT, LT(2,KC_PENT)
     ),
     [_NUMPAD_SHIFT] = LAYOUT(
-        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO
+        _______, _______, _______, _______, _______, KC_NO,
+        KC_NO,   KC_NO,   KC_NLCK, _______, _______, _______,
+        KC_NO,   KC_NO,   KC_HOME, KC_UP,   KC_END,  _______,
+        KC_NO, S(KC_QUOT),KC_LEFT ,KC_NO,   KC_RGHT ,_______,
+        KC_NO, S(KC_TAB), KC_BSPC, KC_DOWN, KC_DEL,  _______,
+        KC_NO, S(KC_SPC), KC_SPC,  KC_EQL,  KC_COMM, _______
     ),
     [_FN] = LAYOUT(
-        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO
+        _______, _______, _______, _______, KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
     )
 };
 
