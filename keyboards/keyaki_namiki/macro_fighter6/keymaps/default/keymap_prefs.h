@@ -2,5 +2,6 @@
 enum layer_names {
     _BASE,
     _NUMPAD,
+    _NUMPAD_SHIFT,
     _FN
 };
