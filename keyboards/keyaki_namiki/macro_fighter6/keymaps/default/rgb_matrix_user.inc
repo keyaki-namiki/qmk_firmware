@@ -3,8 +3,6 @@ RGB_MATRIX_EFFECT(quick17_rgbm_effect)
 #ifdef RGB_MATRIX_CUSTOM_EFFECT_IMPLS
 
 #include "keymap_prefs.h"
-#include "keymap.h"
-
 
 #define LED_LAYOUT(\
     L00, L01, L02, L03, L04, L05, \
