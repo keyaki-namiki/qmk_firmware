@@ -21,7 +21,7 @@ enum custom_keycodes {
     NONE
 };
 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+const uint16_t PROGMEM keymaps[4][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         TO(0),   TO(1),   KC_NO,   TO(3),   RGB_MOD, RGB_TOG,
         KC_CAPS, KC_NLCK, KC_NO,   KC_NO,   KC_DEL,  KC_BSPC,
@@ -55,6 +55,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
     )
 };
+
+const uint16_t PROGMEM keymaps_global[4][MATRIX_ROWS][MATRIX_COLS] = {};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
