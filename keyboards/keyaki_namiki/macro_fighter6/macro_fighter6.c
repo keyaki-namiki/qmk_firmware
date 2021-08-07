@@ -30,13 +30,57 @@ led_config_t g_led_config = {
     { 1,  6,  9,  14, 17, 22 },\
     { 2,  5,  10, 13, 18, 21 },\
     { 3,  4,  11, 12, 19, 20 },\
-  }, {
+  }, /*{
     { RGBmX(0), RGBmY(5) }, { RGBmX(1), RGBmY(5) }, { RGBmX(2), RGBmY(5) }, { RGBmX(3), RGBmY(5) }, { RGBmX(4), RGBmY(5) }, { RGBmX(5), RGBmY(5) },
     { RGBmX(0), RGBmY(4) }, { RGBmX(1), RGBmY(4) }, { RGBmX(2), RGBmY(4) }, { RGBmX(3), RGBmY(4) }, { RGBmX(4), RGBmY(4) }, { RGBmX(5), RGBmY(4) },
     { RGBmX(0), RGBmY(3) }, { RGBmX(1), RGBmY(3) }, { RGBmX(2), RGBmY(3) }, { RGBmX(3), RGBmY(3) }, { RGBmX(4), RGBmY(3) }, { RGBmX(5), RGBmY(3) },
     { RGBmX(0), RGBmY(2) }, { RGBmX(1), RGBmY(2) }, { RGBmX(2), RGBmY(2) }, { RGBmX(3), RGBmY(2) }, { RGBmX(4), RGBmY(2) }, { RGBmX(5), RGBmY(2) },
     { RGBmX(0), RGBmY(1) }, { RGBmX(1), RGBmY(1) }, { RGBmX(2), RGBmY(1) }, { RGBmX(3), RGBmY(1) }, { RGBmX(4), RGBmY(1) }, { RGBmX(5), RGBmY(1) },
     { RGBmX(0), RGBmY(0) }, { RGBmX(1), RGBmY(0) }, { RGBmX(2), RGBmY(0) }, { RGBmX(3), RGBmY(0) }, { RGBmX(4), RGBmY(0) }, { RGBmX(5), RGBmY(0) }
+  }*/ {
+    // 0-4
+    { RGBmX(0), RGBmY(3) },\
+    { RGBmX(0), RGBmY(2) },\
+    { RGBmX(0), RGBmY(1) },\
+    { RGBmX(0), RGBmY(0) },\
+    { RGBmX(1), RGBmY(0) },\
+    // 5-9
+    { RGBmX(1), RGBmY(1) },\
+    { RGBmX(1), RGBmY(2) },\
+    { RGBmX(1), RGBmY(3) },\
+    { RGBmX(2), RGBmY(3) },\
+    { RGBmX(2), RGBmY(2) },\
+    // 10-14
+    { RGBmX(2), RGBmY(1) },\
+    { RGBmX(2), RGBmY(0) },\
+    { RGBmX(3), RGBmY(0) },\
+    { RGBmX(3), RGBmY(1) },\
+    { RGBmX(3), RGBmY(2) },\
+    // 15-19
+    { RGBmX(3), RGBmY(3) },\
+    { RGBmX(4), RGBmY(3) },\
+    { RGBmX(4), RGBmY(2) },\
+    { RGBmX(4), RGBmY(1) },\
+    { RGBmX(4), RGBmY(0) },\
+    // 20-24
+    { RGBmX(5), RGBmY(0) },\
+    { RGBmX(5), RGBmY(1) },\
+    { RGBmX(5), RGBmY(2) },\
+    { RGBmX(5), RGBmY(3) },\
+    { RGBmX(5), RGBmY(4) },\
+    // 25-29
+    { RGBmX(4), RGBmY(4) },\
+    { RGBmX(3), RGBmY(4) },\
+    { RGBmX(2), RGBmY(4) },\
+    { RGBmX(1), RGBmY(4) },\
+    { RGBmX(0), RGBmY(4) },\
+    // 30-35
+    { RGBmX(0), RGBmY(5) },\
+    { RGBmX(1), RGBmY(5) },\
+    { RGBmX(2), RGBmY(5) },\
+    { RGBmX(3), RGBmY(5) },\
+    { RGBmX(4), RGBmY(5) },\
+    { RGBmX(5), RGBmY(5) }\
   }, {
     4, 4, 4, 4, 4, 4,
     4, 4, 4, 4, 4, 4,
