@@ -18,13 +18,13 @@
 
 // Defines the keycodes used by our macros in process_record_user
 enum custom_keycodes {
-    NONE
+    IF_CAPS
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         TO(0),   TO(1),   KC_NO,   TO(3),   RGB_MOD, RGB_TOG,
-        KC_CAPS, KC_NLCK, KC_NO,   KC_NO,   KC_DEL,  KC_BSPC,
+        IF_CAPS, KC_NLCK, KC_NO,   KC_NO,   KC_DEL,  KC_BSPC,
         KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,
         KC_LCTL, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
         KC_LSFT, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,
@@ -56,13 +56,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
+static bool caps_state = false;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case NONE:
+        case IF_CAPS: // check if your on-board keyboard caps swapped with LCTL, and submit this key as capslock
             if (record->event.pressed) {
                 // when your custom keycode is pressed
+                caps_state = host_keyboard_led_state().caps_lock;
+                tap_code(KC_CAPS);
             } else {
                 // when your custom keycode is released
+                if(caps_state == host_keyboard_led_state().caps_lock) {
+                    tap_code(KC_LCTL);
+                }
             }
             break;
     }
