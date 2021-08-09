@@ -64,7 +64,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define RGB_DI_PIN D2
 #define RGBLED_NUM 36
-#define DRIVER_LED_TOTAL RGBLED_NUM
 #ifdef RGBLIGHT_ENABLE
 #define RGBLIGHT_LED_MAP {\
     12, 18, 24, 30, 31, 25,\
@@ -98,6 +97,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define RGBLIGHT_EFFECT_BREATHE_CENTER 1.85  // 1 to 2.7
 //#    define RGBLIGHT_EFFECT_BREATHE_MAX    255   // 0 to 255
 #endif
+
+#ifdef RGB_MATRIX_ENABLE
+#define DRIVER_LED_TOTAL RGBLED_NUM
+#define RGBLIGHT_HUE_STEP 8
+#define RGBLIGHT_SAT_STEP 8
+#define RGBLIGHT_VAL_STEP 8
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 100 /* The maximum brightness level */
+#define RGB_MATRIX_STARTUP_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS // Sets the default hue value, if none has been set
+
+#endif
+
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
