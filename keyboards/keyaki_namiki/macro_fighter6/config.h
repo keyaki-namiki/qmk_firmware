@@ -67,12 +67,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DRIVER_LED_TOTAL RGBLED_NUM
 #ifdef RGBLIGHT_ENABLE
 #define RGBLIGHT_LED_MAP {\
-    30, 31, 2,  33, 34, 35,\
-    29, 2,  27, 26, 25, 24,\
-    0,  7,  8,  15, 16, 23,\
-    1,  6,  9,  14, 17, 22,\
-    2,  5,  10, 13, 18, 21,\
-    3,  4,  11, 12, 19, 20\
+    12, 18, 24, 30, 31, 25,\
+    19, 13, 14, 20, 26, 32,\
+    33, 27, 21, 15, 16, 22,\
+    28, 34, 35, 29, 23, 17,\
+    11, 10, 9,  8,  7,  6,\
+    0,  1,  2,  3,  4,  5\
 }
 #    define RGBLIGHT_HUE_STEP 8
 #    define RGBLIGHT_SAT_STEP 8
